@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <script defer src="fontawesome-all.min.js"></script>
+    <script src="./jquery.js"></script>
+    <script>if (typeof module === 'object') {window.jQuery = window.$ = module.exports;};</script>
+    <!-- <link rel="stylesheet" href="style/style.css"> -->
+    <link rel="stylesheet" href="style/main.css"/>
+    <title>Music Player</title>
+</head>
+<body ng-app="Player">
+    <div id="app">
+  		<div id="status">
+
+  			<div class="head-bar">
+  				<div class="fl">
+  					<span class="icon icon-menu menu"></span>
+  				</div>
+  					<span class="title" id="title">title</span>
+  				<div class="fr">
+  					<span class="icon icon-shrink2 mini"></span>
+  					<span class="icon icon-enlarge2 max"></span>
+  					<span class="icon icon-cross close"></span>
+  				</div>
+  			</div>
+
+  			<div class="time-dash-board" >
+  <!-- 				<canvas id="gauge"></canvas> -->
+  				<div class="dash-board-panel">
+  					<span class="icon icon-plus plus"></span>
+  					<span class="icon icon-minus minus"></span>
+  					<span class="valume">50%</span>
+  					<span class="title">VALUME</span>
+  				</div>
+
+  			</div>
+  			<div class="opration-menu">
+  				<div class="wave" id="waver">
+            <!-- <canvas width="196" height="60" style="width: 196px; height: 60px;" ></canvas> -->
+          </div>
+  				<div class="progress-bar">
+  					<div class="fill"></div>
+  					<div class="empty"></div>
+  				</div>
+  				<div class="opreates">
+  					<span class="icon icon-stop2 end"></span>
+  					<span class="icon icon-backward2 last"></span>
+  					<span class="icon icon-play3 bin"></span>
+  					<span class="icon icon-forward3 next"></span>
+
+  				</div>
+  				<div class="ex-opreates">
+  					<span class="icon icon-volume-medium "></span>
+  					<div class="time">
+  						<span>00:00:00</span>
+  					</div>
+  					<span class="icon icon-loop2 "></span>
+  					<span class="icon icon-shuffle "></span>
+  				</div>
+  			</div>
+
+
+  		</div>
+  		<div id="fileList">
+  			<div class="head-bar">
+  				<div class="tab">
+
+  				</div>
+  			</div>
+
+  			<div class="file-container">
+  				<div class="op-bar">
+
+  				</div>
+  				<div class="file-wrapper">
+  					<div class="file-list" id="file-list">
+
+  						<div class="file" title="songs info">
+  							<div class="info-box">
+  								<span class="title">song1</span>
+  								<span class="duration">04:03</span>
+  								<span class="info">MP3::44kHz,320kbs</span>
+  							</div>
+  						</div>
+
+  						<div class="file checked" title="songs info">
+  							<div class="info-box">
+  								<span class="title">song2</span>
+  								<span class="duration">05:03</span>
+  								<span class="info">MP3::44kHz,320kbs,10.02mb</span>
+  							</div>
+  						</div>
+  						<div class="file" title="songs info">
+  							<div class="info-box">
+  								<span class="title">song3</span>
+  								<span class="duration">02:03</span>
+  								<span class="info">MP3::44kHz,320kbs,1.2mb</span>
+  							</div>
+  						</div>
+  						<div class="file" title="songs info">
+  							<div class="info-box">
+  								<span class="title">song4</span>
+  								<span class="duration">01:03</span>
+  								<span class="info">MP3::44kHz,320kbs,0.02mb</span>
+  							</div>
+  						</div>
+  						<div class="file" title="songs info">
+  							<div class="info-box">
+  								<span class="title">song5</span>
+  								<span class="duration">06:03</span>
+  								<span class="info">MP3::44kHz,320kbs,12mb</span>
+  							</div>
+  						</div>
+  						<div class="file" title="songs info">
+  							<div class="info-box">
+  								<span class="title">song6</span>
+  								<span class="duration">01:03</span>
+  								<span class="info">MP3::44kHz,320kbs,1mb</span>
+  							</div>
+  						</div>
+  						<div class="file" title="songs info">
+  							<div class="info-box">
+  								<span class="title">song7</span>
+  								<span class="duration">01:03</span>
+  								<span class="info">MP3::44kHz,320kbs,10.02mb</span>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+
+  			</div>
+  			<div class="tail">
+  				<span class="title">AIMP</span>
+  				<div class="op-bar">
+  					<div class="add parallel-box">
+  						<span class=" skew-back">+</span>
+
+  					</div>
+  					<div class="remove parallel-box">
+  						<span class=" skew-back">-</span>
+  					</div>
+
+  				</div>
+  				<div class="tab">
+  					<input placeholder="快速搜索"></input>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+    <!-- <script src="../node_modules/angular/angular.js"></script> -->
+    <!-- <script src="../node_modules/angular-route/angular-route.min.js"></script> -->
+    <!-- <script src="../node_modules/howler/src/howler.core.js"></script> -->
+    <!-- <script src="angular-siri-wave.js"></script> -->
+    <script src="siriwave.js"></script>
+
+    <!-- <script src="player/player.js"></script> -->
+    <!-- <script src="app.js"></script> -->
+    <script type="text/javascript">
+      var _player = require('./player/player.js');
+      var player = new _player();
+    </script>
+
+</body>
+</html>
